@@ -5,6 +5,7 @@ public class SeTimetable {
     public String className;
    // public ArrayList<String> time,prac,subprof,labprof;
     public ArrayList<String> mon,tue,wen,thur,fri;
+    public ArrayList<String> sub;
 
 
     public SeTimetable() {
@@ -24,6 +25,19 @@ public class SeTimetable {
        this.wen=wen;
        this.thur=thur;
        this.fri=fri;
+
+    }
+
+
+    public  void SeeTimetable(String className, ArrayList<String> sub) {
+        this.className = className;
+       /* this.time = time;
+        this.prac = prac;
+        this.subprof = subprof;
+        this.labprof = labprof;*/
+
+        this.sub=sub;
+
 
     }
 
@@ -84,7 +98,11 @@ public class SeTimetable {
         this.fri=fri;
     }
 
+    public ArrayList<String> getSub() {
+        return sub;
+    }
 
-
-
+    public void setSub(ArrayList<String> sub) {
+        this.sub = sub;
+    }
 }

@@ -190,13 +190,15 @@ public class methods {
 
 
 
-
+newTIMETablemethods newT=new newTIMETablemethods();
     String[][] shift(String[][] love,int y){
         int l=0;
+
         // System.out.println("CheckPoint shift");
         Random random = new Random();
         // System.out.println(love.length+"\t"+love[0].length);
         int numberOfValues = love.length * love[0].length;
+
         for (int i = numberOfValues - 1; i > 0; i--) {
             int index = random.nextInt(i);
             int row = i / love[0].length;
@@ -239,6 +241,61 @@ public class methods {
 
 
         }
+
+
+        return love;
+    }
+
+
+
+    String[][] shift1(String[][] love,int y){
+        int l=0;
+        // System.out.println("CheckPoint shift");
+        Random random = new Random();
+        // System.out.println(love.length+"\t"+love[0].length);
+        int numberOfValues = love.length * love[0].length;
+        for (int i = numberOfValues - 1; i > 0; i--) {
+            int index = random.nextInt(i);
+            int row = i / love[0].length;
+            int column = i - row * love[0].length;
+            int randomRow = index / love[0].length;
+            int randomColumn = index - randomRow * love[0].length;
+            String temp = love[row][column];
+            love[row][column] = love[randomRow][randomColumn];
+            love[randomRow][randomColumn] = temp;
+        }
+
+      /*  for(int i=0;i<5;i++){
+            for(int j=0;j<5;j++){
+
+                if(love[i][1]=="TOC    "||love[i][1]=="ISEE   "||love[i][2]=="TOC    "
+                        ||love[i][2]=="ISEE   "||love[i][1]=="SDl(2) "||love[i][2]=="SDl(2) "){
+                    // l++;
+                    shift(love,0);
+
+                }
+
+                if(love[i][1]=="DESHMUKH-M"||love[i][2]=="DESHMUKH-M"){
+                    if(y==2){
+
+                        // l++;
+                        shift(love,2);
+
+                    }
+
+                }
+
+                if(love[i][1]=="DSA"||love[i][2]=="DSA"){
+
+                    // l++;
+                    shift(love,2);
+
+                }
+
+            }
+
+
+        }*/
 
 
         return love;
@@ -360,7 +417,8 @@ public class methods {
     }
 
 
-
+    public void ALLCLASSRETRIEVESUBJECTS() {
+    }
 }
 
 

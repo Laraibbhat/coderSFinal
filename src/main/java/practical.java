@@ -119,14 +119,39 @@ public class practical {
         }
 
 
-      /*  System.out.println();
+        System.out.println();
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 4; j++) {
+                System.out.print(PracBE[i][j] + " \t");
+            }
+            System.out.println();
+        }
+
+
+        System.out.println("\n\nBREAK");
+
+        System.out.println();
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 4; j++) {
+                System.out.print(PracTE[i][j] + " \t");
+            }
+            System.out.println();
+        }
+
+
+        System.out.println("\n\nBREAK");
+
+
+        System.out.println();
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 4; j++) {
                 System.out.print(PracSE[i][j] + " \t");
             }
             System.out.println();
-        }*/
+        }
 
+
+        System.out.println("\n\nBREAK");
 
         shuffling();
 

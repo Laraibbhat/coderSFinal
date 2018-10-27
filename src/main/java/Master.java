@@ -5,11 +5,19 @@
  */
 
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
+import com.google.firebase.cloud.FirestoreClient;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
@@ -19,6 +27,45 @@ import javax.swing.table.DefaultTableModel;
  * @author laraib
  */
 public class Master extends javax.swing.JFrame {
+
+
+     String[][] SEESUBJ=new String[5][5];
+     String[][] TEESUBJ=new String[5][5];
+     String[][] BEESUBJ=new String[5][5];
+
+    String[][] SEnewFinalSUB=new String[5][5];
+    String[][] TEnewFinalSUB=new String[5][5];
+    String[][] BEnewFinalSUB=new String[5][5];
+
+
+
+    String[][] shufflesSEprof=new String[5][5];
+    String[][] shufflesTEprof=new String[5][5];
+    String[][] shufflesBEprof=new String[5][5];
+
+    String[][] ST=new String[5][8];
+    String[][] TT=new String[5][8];
+    String[][] BT=new String[5][8];
+
+    String[][] changedFinalSE=new String[5][8];
+    String[][] changedFinalTE=new String[5][8];
+    String[][] changedFinalBE=new String[5][8];
+
+    String[][] newSEESUBJ=new String[5][5];
+    String[][] newBEESUBJ=new String[5][5];
+
+
+     methods met=new methods();
+     collision co=new collision();
+     collisionRemoval cor=new collisionRemoval();
+     source su=new source();
+     newTime ne=new newTime();
+    newTIMETablemethods newT=new newTIMETablemethods();
+
+
+    ArrayList<SeTimetable> retrievedSEsubjects=new ArrayList<>();
+    ArrayList<SeTimetable> retrievedTEsubjects=new ArrayList<>();
+    ArrayList<SeTimetable> retrievedBEsubjects=new ArrayList<>();
 
     /**
      * Creates new form Master
@@ -223,7 +270,15 @@ public class Master extends javax.swing.JFrame {
         btnHodGen.setText("GENERATE");
         btnHodGen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHodGenActionPerformed(evt);
+                try {
+                    btnHodGenActionPerformed(evt);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -363,13 +418,122 @@ public class Master extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
-    private void btnHodGenActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnHodGenActionPerformed(java.awt.event.ActionEvent evt) throws InterruptedException, ExecutionException, IOException {
         // TODO add your handling code here:
         Laraib um=new Laraib();
         um.gen();
+        newTime newTime=new newTime();
 
-        practical pa=new practical();
-        pa.shuffling();
+
+        Firestore db = FirestoreClient.getFirestore();
+        ApiFuture<QuerySnapshot> future1 =db.collection("BE5_Timetable").get();
+
+        List<QueryDocumentSnapshot> documents=future1.get().getDocuments();
+        for(QueryDocumentSnapshot document:documents){
+            retrievedBEsubjects.add(document.toObject(SeTimetable.class));
+
+            System.out.println(document.getId());
+        }
+        BEESUBJ=newTIMETablemethods.arraylisttostring5(retrievedBEsubjects);
+
+
+       // System.out.println("#############################!!!!!!!!!!!!!!!!!!!!!!!!!###########################");
+
+        ApiFuture<QuerySnapshot> future2 =db.collection("TE5_Timetable").get();
+
+        List<QueryDocumentSnapshot> documentsT=future2.get().getDocuments();
+        for(QueryDocumentSnapshot document:documentsT){
+            retrievedTEsubjects.add(document.toObject(SeTimetable.class));
+
+            System.out.println(document.getId());
+        }
+        TEESUBJ=newTIMETablemethods.arraylisttostring5(retrievedTEsubjects);
+
+
+       // System.out.println("#############################!!!!!!!!!!!!!!!!!!!!!!!!!###########################");
+       // System.out.println("#############################!!!!!!!!!!!!!!!!!!!!!!!!!###########################");
+
+        ApiFuture<QuerySnapshot> future3 =db.collection("SE5_Timetable").get();
+
+        List<QueryDocumentSnapshot> documentsS=future3.get().getDocuments();
+        for(QueryDocumentSnapshot document:documentsS){
+            retrievedSEsubjects.add(document.toObject(SeTimetable.class));
+
+            System.out.println(document.getId());
+        }
+        SEESUBJ=newTIMETablemethods.arraylisttostring5(retrievedSEsubjects);
+
+
+      //  System.out.println("#############################!!!!!!!!!!!!!!!!!!!!!!!!!###########################");
+
+
+       // newT.printmenu(SEESUBJ);
+
+        shufflesSEprof=met.shift(SEESUBJ,0);
+        shufflesTEprof=met.shift(TEESUBJ,0);
+        shufflesBEprof=met.shift(BEESUBJ,0);
+
+       // newT.printmenu(shufflesSEprof);
+       // newT.printmenu(shufflesTEprof);
+       // newT.printmenu(shufflesBEprof);
+
+       // System.out.println("ASD2222222222222222222222222222222222222222222222");
+        newBEESUBJ=cor.colli(TEESUBJ,BEESUBJ);
+
+        newSEESUBJ=cor.colli2(newBEESUBJ,SEESUBJ,TEESUBJ);
+        ne.retrievedSub();
+       // System.out.println("BEForeASD2222222222222222222222222222222222222222222222\t"+ne.retrievedSEproff.size());
+      //  for (int i = 0; i < ne.retrievedSEproff.size(); i++) {
+         //   System.out.println("ASD222222222hfjfjfgjfghf44444444444444442222222222222222222222222222222222222");
+         //   if (ne.retrievedSEproff.get(i).containsKey(ne.retrievedSEsub.get(i))) {
+           //     System.out.println(ne.retrievedSEproff.get(i).get(ne.retrievedSEsub.get(i)) + "####################################");
+          //  }
+
+      //  }
+        System.out.println("AFTERASD2222222222222222222222222222222222222222222222");
+       // ne.retrievedSub();
+        SEnewFinalSUB = newT.mapprofSEtosub(ne.retrievedSEproff, newSEESUBJ);
+        TEnewFinalSUB = newT.mapprofTEtosub(ne.retrievedTEproff, shufflesTEprof);
+        BEnewFinalSUB = newT.mapprofBEtosub(ne.retrievedBEproff, newBEESUBJ);
+
+        //newT.printmenu(SEnewFinalSUB);
+       // newT.printmenu(TEnewFinalSUB);
+       // newT.printmenu(BEnewFinalSUB);
+
+
+        ST=su.tre(SEnewFinalSUB);
+        TT=su.tre1(TEnewFinalSUB);
+        BT=su.tre2(BEnewFinalSUB);
+
+        //ST=su.tre(newSEESUBJ);
+       // TT=su.tre1(TEESUBJ);
+       // BT=su.tre2(newBEESUBJ);
+
+        changedFinalSE=met.change(ST);
+        changedFinalTE=met.change(TT);
+        changedFinalBE=met.change(BT);
+
+        changedFinalSE=met.change1(changedFinalSE);
+        changedFinalTE=met.change1(changedFinalTE);
+        changedFinalBE=met.change1(changedFinalBE);
+
+        changedFinalSE=met.change2(changedFinalSE);
+        changedFinalTE=met.change2(changedFinalTE);
+        changedFinalBE=met.change2(changedFinalBE);
+
+        met.print2(changedFinalSE,"TIMETABLE OF SE  in new TIME");
+        met.print2(changedFinalTE,"TIMETABLE OF TE in new TIME");
+       met.print2(changedFinalBE,"TIMETABLE OF BE in new TIME");
+       // um.upload(MENU.SEESUBJECTS,MENU.TEESUBJECTS,MENU.BEESUBJECTS);
+       newT.upload(changedFinalSE,changedFinalTE,changedFinalBE);
+
+
+
+
+       // newTime.newtimeMenuActionPerformed();
+        //newTime.gennewTime();
+       // practical pa=new practical();
+       // pa.shuffling();
         MENU me=new MENU();
         me.setVisible(true);
         //this.setVisible(false); //this will close frame i.e. NewJFrame
@@ -395,9 +559,10 @@ public class Master extends javax.swing.JFrame {
     private void uploadbtnActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
 
-        Laraib um=new Laraib();
+        newTIMETablemethods newT=new newTIMETablemethods();
         try {
-            um.upload();
+           // um.upload();
+            newT.upload(changedFinalSE,changedFinalTE,changedFinalBE);
             MENU me=new MENU();
             me.setVisible(true);
             this.dispose();

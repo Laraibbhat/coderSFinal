@@ -5,18 +5,22 @@
  */
 
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
+import com.google.cloud.firestore.WriteResult;
+import com.google.firebase.cloud.FirestoreClient;
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
-/**
- *
- * @author laraib
- */
 public class MENU extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MENU
-     */
+
     public MENU() {
         initComponents();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -41,6 +45,8 @@ public class MENU extends javax.swing.JFrame {
         btn3 = new javax.swing.JButton();
         btnMenuExit = new javax.swing.JButton();
         btnHOD = new javax.swing.JButton();
+        btn4 = new javax.swing.JButton();
+        newtimebtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,7 +72,7 @@ public class MENU extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(236, 236, 236)
                                                 .addComponent(l2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(39, Short.MAX_VALUE))
+                                .addContainerGap(76, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,7 +92,11 @@ public class MENU extends javax.swing.JFrame {
         btn1.setText("SE TIMETABLE");
         btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn1ActionPerformed(evt);
+                try {
+                    btn1ActionPerformed(evt);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -96,7 +106,13 @@ public class MENU extends javax.swing.JFrame {
         btn2.setText("TE TIMETABLE");
         btn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn2ActionPerformed(evt);
+                try {
+                    btn2ActionPerformed(evt);
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -106,11 +122,17 @@ public class MENU extends javax.swing.JFrame {
         btn3.setText("BE TIMETABLE");
         btn3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn3ActionPerformed(evt);
+                try {
+                    btn3ActionPerformed(evt);
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
-        btnMenuExit.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        btnMenuExit.setFont(new java.awt.Font("URW Chancery L", 1, 24)); // NOI18N
         btnMenuExit.setText("EXIT");
         btnMenuExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,11 +140,41 @@ public class MENU extends javax.swing.JFrame {
             }
         });
 
-        btnHOD.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        btnHOD.setFont(new java.awt.Font("URW Chancery L", 1, 24)); // NOI18N
         btnHOD.setText("H.O.D LOGIN");
         btnHOD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHODActionPerformed(evt);
+                try {
+                    btnHODActionPerformed(evt);
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        btn4.setBackground(new java.awt.Color(228, 199, 225));
+        btn4.setFont(new java.awt.Font("URW Chancery L", 1, 36)); // NOI18N
+        btn4.setForeground(new java.awt.Color(40, 31, 31));
+        btn4.setText("PROF TIMETABLE");
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
+
+        newtimebtn.setFont(new java.awt.Font("URW Chancery L", 1, 36)); // NOI18N
+        newtimebtn.setText("NEW TIMETABLE");
+        newtimebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                try {
+                    newtimebtnActionPerformed(evt);
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -130,18 +182,18 @@ public class MENU extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(226, 226, 226)
-                                .addComponent(btnHOD)
-                                .addGap(180, 180, 180)
-                                .addComponent(btnMenuExit, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addComponent(btnHOD)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(btnMenuExit, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btn3, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                                        .addComponent(btn2, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                                        .addComponent(btn1, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                                        .addComponent(btn4, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                                        .addComponent(newtimebtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(274, 274, 274))
         );
         jPanel2Layout.setVerticalGroup(
@@ -153,11 +205,15 @@ public class MENU extends javax.swing.JFrame {
                                 .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(44, 44, 44)
                                 .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                                .addGap(44, 44, 44)
+                                .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(btnHOD, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnMenuExit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(42, 42, 42))
+                                        .addComponent(btnMenuExit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnHOD, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(36, 36, 36)
+                                .addComponent(newtimebtn, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,30 +234,56 @@ public class MENU extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
-    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {
+   static String[][] SEESUBJECTS=new String[5][8];
+   static String[][] TEESUBJECTS=new String[5][8];
+   static String[][] BEESUBJECTS=new String[5][8];
+
+    ArrayList<String> retrievedSEsub=new ArrayList<>();
+    ArrayList<String> retrievedTEsub=new ArrayList<>();
+    ArrayList<String> retrievedBEsub=new ArrayList<>();
+
+    ArrayList<SeTimetable> retrievedSEsubjects=new ArrayList<>();
+    ArrayList<SeTimetable> retrievedTEsubjects=new ArrayList<>();
+    ArrayList<SeTimetable> retrievedBEsubjects=new ArrayList<>();
+
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) throws Exception {
         Laraib um=new Laraib();
         String s="TIMETABLE OF SE";
+
+        ALLCLASSRETRIEVESUBJECTS ();
         String batchSE[]={"S1","S2","S3","S4"};
-        TIME fa =new TIME(um.SEE,practical.PracSE,s,batchSE);
+        TIMES fa =new TIMES(SEESUBJECTS,practical.PracSE,s,batchSE);
         fa.setVisible(true);
         this.dispose();
     }
 
-    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) throws ExecutionException, InterruptedException {
+
+
         Laraib um=new Laraib();
         String batchTE[]={"T1","T2","T3","T4"};
         String s="TIMETABLE OF TE";
-        TIME fa =new TIME(um.TEE,practical.PracTE,s,batchTE);
+
+
+
+
+        ALLCLASSRETRIEVESUBJECTS ();
+        TIMET fa =new TIMET(TEESUBJECTS,practical.PracTE,s,batchTE);
         fa.setVisible(true);
         this.dispose();
     }
 
-    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) throws ExecutionException, InterruptedException {
         Laraib um=new Laraib();
 
         String s="TIMETABLE OF BE";
         String batchBE[]={"B1","B2","B3","B4"};
-        TIME fa =new TIME(um.BEE,practical.PracBE,s,batchBE);
+
+
+
+
+        ALLCLASSRETRIEVESUBJECTS ();
+        TIMESB fa =new TIMESB(BEESUBJECTS,practical.PracBE,s,batchBE);
         fa.setVisible(true);
         this.dispose();
     }
@@ -211,27 +293,140 @@ public class MENU extends javax.swing.JFrame {
         this.dispose();
     }
 
-    private void btnHODActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnHODActionPerformed(java.awt.event.ActionEvent evt) throws ExecutionException, InterruptedException {
         // TODO add your handling code here:
+        Laraib um=new Laraib();
+        this.dispose();
         if(login.t==0) {
-            this.dispose();
             login lo = new login();
             lo.setVisible(true);
-
         }
-        else{
+        else
+        {
 
-            this.dispose();
-            Laraib um=new Laraib();
-            String s="TIMETABLE OF SE";
-            //TIME fa =new TIME(um.SEE,um.);
-            Master ma=new Master(um.SEE,um.TEE,um.BEE);
+            ALLCLASSRETRIEVESUBJECTS ();
+            Master ma = new Master(MENU.SEESUBJECTS, MENU.TEESUBJECTS, MENU.BEESUBJECTS);
             ma.setVisible(true);
             this.dispose();
 
+
+        }
+    }
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        profftime pt=new profftime();
+        pt.setVisible(true);
+        this.dispose();
+    }
+
+
+
+
+
+    private void newtimebtnActionPerformed(java.awt.event.ActionEvent evt) throws ExecutionException, InterruptedException {
+        // TODO add your handling code here:
+
+        DeleteOldSubjects();
+
+
+        newTime ne=new newTime();
+
+        ne.setVisible(true);
+        this.dispose();
+    }
+
+
+
+    void DeleteOldSubjects() throws ExecutionException, InterruptedException {
+
+        Firestore db = FirestoreClient.getFirestore();
+        ApiFuture<QuerySnapshot> future1 =db.collection("SE").get();
+
+        List<QueryDocumentSnapshot> documents=future1.get().getDocuments();
+        for(QueryDocumentSnapshot document:documents){
+            retrievedSEsub.add(document.getId());
+
+            System.out.println(document.getId());
+        }
+
+        for(int i=0;i<retrievedSEsub.size();i++) {
+            ApiFuture<WriteResult> writeResult = db.collection("SE").document(retrievedSEsub.get(i)).delete();
+// ...
+        }
+
+        ApiFuture<QuerySnapshot> future2 =db.collection("TE").get();
+
+        List<QueryDocumentSnapshot> documentss=future2.get().getDocuments();
+        for(QueryDocumentSnapshot document:documentss){
+            retrievedTEsub.add(document.getId());
+
+            System.out.println(document.getId());
+        }
+        for(int i=0;i<retrievedTEsub.size();i++) {
+            ApiFuture<WriteResult> writeResult = db.collection("TE").document(retrievedTEsub.get(i)).delete();
+// ...
+        }
+
+
+
+        ApiFuture<QuerySnapshot> future3 =db.collection("BE").get();
+
+        List<QueryDocumentSnapshot> documentsss=future3.get().getDocuments();
+        for(QueryDocumentSnapshot document:documentsss){
+            retrievedBEsub.add(document.getId());
+
+            System.out.println(document.getId());
+        }
+        for(int i=0;i<retrievedBEsub.size();i++) {
+            ApiFuture<WriteResult> writeResult = db.collection("BE").document(retrievedBEsub.get(i)).delete();
+// ...
         }
 
     }
+
+
+
+    void ALLCLASSRETRIEVESUBJECTS () throws ExecutionException, InterruptedException {
+
+        Firestore db = FirestoreClient.getFirestore();
+        ApiFuture<QuerySnapshot> future1 =db.collection("SEE_Timetable").get();
+
+        List<QueryDocumentSnapshot> documents=future1.get().getDocuments();
+        for(QueryDocumentSnapshot document:documents){
+            retrievedSEsubjects.add(document.toObject(SeTimetable.class));
+
+            System.out.println(document.getId());
+        }
+
+
+        SEESUBJECTS=newTIMETablemethods.arraylisttostring(retrievedSEsubjects);
+
+
+        ApiFuture<QuerySnapshot> future2 =db.collection("TEE_Timetable").get();
+
+        List<QueryDocumentSnapshot> documentsT=future2.get().getDocuments();
+        for(QueryDocumentSnapshot document:documentsT){
+            retrievedTEsubjects.add(document.toObject(SeTimetable.class));
+
+            System.out.println(document.getId());
+        }
+        TEESUBJECTS=newTIMETablemethods.arraylisttostring(retrievedTEsubjects);
+
+
+        ApiFuture<QuerySnapshot> future3 =db.collection("BEE_Timetable").get();
+
+        List<QueryDocumentSnapshot> documentsB=future3.get().getDocuments();
+        for(QueryDocumentSnapshot document:documentsB){
+            retrievedBEsubjects.add(document.toObject(SeTimetable.class));
+
+            System.out.println(document.getId());
+        }
+        BEESUBJECTS=newTIMETablemethods.arraylisttostring(retrievedBEsubjects);
+
+
+    }
+
 
     /**
      * @param args the command line arguments
@@ -272,11 +467,13 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JButton btn1;
     private javax.swing.JButton btn2;
     private javax.swing.JButton btn3;
+    private javax.swing.JButton btn4;
     private javax.swing.JButton btnHOD;
     private javax.swing.JButton btnMenuExit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel l2;
+    private javax.swing.JButton newtimebtn;
     // End of variables declaration
 }

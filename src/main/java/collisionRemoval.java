@@ -21,18 +21,62 @@ public class collisionRemoval {
     methods met=new methods();
 
     public  String[][] colli(String[][] proffTE,String[][] newproffBE){
-        //System.out.println("CHECKPOINT 1");
+       // System.out.println("CHECKPOINT 1");
         // methods.print(proffBE," \n\n\ncolli shiftZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ\n");
 
         for(int i=0;i<5;i++){
             //System.out.println("CHECKPOINT 2");
             for(int j=0;j<5;j++){
-                //System.out.println("CHECKPOINT 3");
+               // System.out.println("CHECKPOINT 3");
+
+                if(proffTE[i][j]==newproffBE[i][j]){
+                    System.out.println("TE PROFF\t\t"+proffTE[i][j]+"\t\tBE PROFF\t\t"+newproffBE[i][j]+"\t\tij\t\t"+i+j);
+
+
+                    // colu[i][j]="ColliSion";
+                    flag=1;
+                     System.out.println("CHECKPOINT 4");
+
+                }
+
+                //else
+                //    colu[i][j]=proffBE[i][j];
+                //System.out.println("CHECKPOINT 5");
+
+            }
+
+        }
+
+        if(flag==1){
+           /// System.out.println("\n\nCHECKPOINT 6\n\n");
+            //  methods.print(newproffBE,"\n\n\n\n BEfore shift\n");
+            newproffBE =met.shift(newproffBE,4);
+            // met.print4(newproffBE,"After Shift in \n");
+            flag=0;
+            colli(proffTE,newproffBE);
+
+        }
+
+
+
+        return newproffBE;
+    }
+
+
+
+    public  String[][] colli12(String[][] proffTE,String[][] newproffBE){
+        System.out.println("CHECKPOINT 1");
+        // methods.print(proffBE," \n\n\ncolli shiftZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ\n");
+
+        for(int i=0;i<5;i++){
+            System.out.println("CHECKPOINT 2");
+            for(int j=0;j<8;j++){
+                System.out.println("CHECKPOINT 3");
 
                 if(proffTE[i][j]==newproffBE[i][j]){
 
 
-                    // colu[i][j]="ColliSion";
+                     colu[i][j]="ColliSion";
                     flag=1;
                     // System.out.println("CHECKPOINT 4");
 
@@ -91,6 +135,38 @@ public class collisionRemoval {
     }
 
 
+
+    public  String[][] colli22(String[][] proffBE,String[][] newproffSE,String[][] TE){
+        int flag=0;
+
+        for(int i=0;i<5;i++){
+            for(int j=0;j<8;j++){
+
+                if(proffBE[i][j]==newproffSE[i][j]||TE[i][j]==newproffSE[i][j]){
+
+                    flag=1;
+
+                }
+
+            }
+
+        }
+
+        if(flag==1){
+
+            newproffSE =met.shift(newproffSE,2);
+
+            flag=0;
+            colli2(proffBE,newproffSE,TE);
+
+        }
+
+        return newproffSE;
+    }
+
+
+
+
     String[][] proff_TE_sub(String[][] love){
 
         for(int i=0;i<5;i++){
@@ -103,7 +179,6 @@ public class collisionRemoval {
 
                 }else if (love[i][j]=="Pareara"){
 
-                    finalTE[i][j]="TOC    ";
 
                 }else if (love[i][j]=="DESHMUKH"){
 

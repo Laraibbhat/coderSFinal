@@ -14,11 +14,11 @@ import java.awt.Toolkit;
  */
 public class login extends javax.swing.JFrame {
 
+    methods met=new methods();
+
     /**
      * Creates new form login
      */
-
-    static int t=0;
     public login() {
         initComponents();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -41,6 +41,8 @@ public class login extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         TFPASS = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
+        btnLogin1 = new javax.swing.JButton();
+        loginl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,7 +56,7 @@ public class login extends javax.swing.JFrame {
 
         TFuser.setFont(new java.awt.Font("Ubuntu Condensed", 0, 24)); // NOI18N
 
-        btnLogin.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        btnLogin.setFont(new java.awt.Font("URW Chancery L", 1, 24)); // NOI18N
         btnLogin.setText("LOGIN");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,26 +69,46 @@ public class login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("URW Chancery L", 3, 50)); // NOI18N
         jLabel2.setText("HOD Login");
 
+        btnLogin1.setFont(new java.awt.Font("URW Chancery L", 1, 24)); // NOI18N
+        btnLogin1.setText("MENU");
+        btnLogin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogin1ActionPerformed(evt);
+            }
+        });
+
+        loginl.setBackground(new java.awt.Color(242, 240, 240));
+        loginl.setFont(new java.awt.Font("URW Chancery L", 1, 24)); // NOI18N
+        loginl.setText("LOGIN STATUS");
+
         javax.swing.GroupLayout jpHODLayout = new javax.swing.GroupLayout(jpHOD);
         jpHOD.setLayout(jpHODLayout);
         jpHODLayout.setHorizontalGroup(
                 jpHODLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jpHODLayout.createSequentialGroup()
-                                .addGroup(jpHODLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jpHODLayout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpHODLayout.createSequentialGroup()
+                                .addGroup(jpHODLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpHODLayout.createSequentialGroup()
+                                                .addGap(289, 289, 289)
+                                                .addComponent(jLabel2)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpHODLayout.createSequentialGroup()
                                                 .addGap(168, 168, 168)
                                                 .addGroup(jpHODLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(btnPass, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(32, 32, 32)
                                                 .addGroup(jpHODLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(TFPASS, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(TFuser, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(jpHODLayout.createSequentialGroup()
-                                                .addGap(289, 289, 289)
-                                                .addComponent(jLabel2)))
-                                .addContainerGap(218, Short.MAX_VALUE))
+                                                        .addGroup(jpHODLayout.createSequentialGroup()
+                                                                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                                                                .addComponent(btnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(jpHODLayout.createSequentialGroup()
+                                                                .addGroup(jpHODLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addComponent(loginl)
+                                                                        .addComponent(TFPASS, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(TFuser, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(78, 78, 78))
         );
         jpHODLayout.setVerticalGroup(
                 jpHODLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,8 +124,12 @@ public class login extends javax.swing.JFrame {
                                         .addComponent(btnPass, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(TFPASS, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34))
+                                .addGroup(jpHODLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(57, 57, 57)
+                                .addComponent(loginl, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -119,30 +145,42 @@ public class login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>
-
+            static int t=0;
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
 
-        if(TFuser.getText().equals("COMPUTER")&&TFPASS.getText().equals("DEPARTMENT")){
+
+        if(TFuser.getText().equals("")&&TFPASS.getText().equals("")){
             t=1;
+            loginl.setText("LOGGED SUCCESSFULLY");
             this.dispose();
             Laraib um=new Laraib();
             String s="TIMETABLE OF SE";
             //TIME fa =new TIME(um.SEE,um.);
-            Master ma=new Master(um.SEE,um.TEE,um.BEE);
+           // Master ma=new Master(um.SEE,um.TEE,um.BEE);
+            met.ALLCLASSRETRIEVESUBJECTS ();
+            Master ma=new Master(MENU.SEESUBJECTS,MENU.TEESUBJECTS,MENU.BEESUBJECTS);
+            //Master ma=new Master(um.SEE,um.TEE,um.BEE);
             ma.setVisible(true);
             this.dispose();
         }
-        // else{
+        else{
 
-        ///Flash fa=new Flash();
-        // fa.setVisible(true);
-        // this.dispose();
+            //Flash fa=new Flash();
+            //fa.setVisible(true);
+            // this.dispose();
+            loginl.setText("LOGGING FAILED");
+
+        }
 
 
-        //  }
+    }
 
-
+    private void btnLogin1ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        MENU ME =new MENU();
+        ME.setVisible(true);
+        this.dispose();
     }
 
     /**
@@ -184,9 +222,11 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPasswordField TFPASS;
     private javax.swing.JTextField TFuser;
     private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnLogin1;
     private javax.swing.JLabel btnPass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jpHOD;
+    private javax.swing.JLabel loginl;
     // End of variables declaration
 }

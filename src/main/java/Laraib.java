@@ -31,7 +31,7 @@ public class Laraib {
     String[][] BT =new String[5][7];
 
 
-    public static void main(String[] args){// throws InterruptedException, ExecutionException, IOException {
+    public static void main(String[] args) throws InterruptedException, ExecutionException, IOException {
 
 
 
@@ -48,13 +48,11 @@ public class Laraib {
        // um.upload();
         practical prac=new practical();
         prac.assignprac();
-     //   for (int i = 0; i < 5; i++) {
-      //      for (int j = 0; j < 4; j++) {
-     //           System.out.print("############################################"+practical.PracTE[i][j] + " \t"+" \t");
-       //     }
-       //     System.out.println();
-      //  }
-        Splash fa=new Splash();
+        proftimetable pro=new proftimetable();
+        pro.filler();
+        um.upload();
+       
+      /*  Splash fa=new Splash();
         fa.setVisible(true);
 
         try{
@@ -83,7 +81,10 @@ public class Laraib {
 
 
 
-        }
+        }*/
+
+      practicalNewTimetable pee=new practicalNewTimetable();
+      pee.setVisible(true);
 
 
 
@@ -93,9 +94,12 @@ public class Laraib {
     public  static String SEE[][]=new String[5][8];
     public static String TEE[][]=new String[5][8];
     public static String BEE[][]=new String[5][8];
+
+
+
+
+
     public   void matrix(String[][] SE,String[][] TE,String[][] BE){
-
-
 
         for(int i=0;i<5;i++){
 
@@ -155,11 +159,11 @@ public class Laraib {
         BEfinal= cor.proff_BE_sub(newBEproff);
 
 
-        SEEfinal=su.tre(SEfinal);
-        TEEfinal=su.tre1(met.assign);
-        BEEfinal=su.tre2(BEfinal);
+        //SEEfinal=su.tre(SEfinal);
+        //TEEfinal=su.tre1(met.assign);
+       // BEEfinal=su.tre2(BEfinal);
 
-      /*  ST=su.tre(SEfinal);
+        ST=su.tre(SEfinal);
         TT=su.tre1(met.assign);
         BT=su.tre2(BEfinal);
 
@@ -168,12 +172,14 @@ public class Laraib {
         BEEfinal=met.change(BT);
 
         SEEfinal=met.change1(SEEfinal);
-        SEEfinal=met.change1(SEEfinal);
-        SEEfinal=met.change1(SEEfinal);
+        TEEfinal=met.change1(TEEfinal);
+        BEEfinal=met.change1(BEEfinal);
 
         SEEfinal=met.change2(SEEfinal);
-        SEEfinal=met.change2(SEEfinal);
-        SEEfinal=met.change2(SEEfinal);*/
+        TEEfinal=met.change2(TEEfinal);
+        BEEfinal=met.change2(BEEfinal);
+
+
 
 
 
@@ -224,41 +230,7 @@ public class Laraib {
          ArrayList<String> num4=new ArrayList<String>();
          Laraib um=new Laraib();
 
-       /*  for(int i=0;i<8;i++){
 
-
-             num.add(um.SEE[0][i]);
-
-
-         }
-         for(int i=0;i<8;i++){
-
-
-             num1.add(um.SEE[1][i]);
-
-
-         }
-         for(int i=0;i<8;i++){
-
-
-             num2.add(um.SEE[2][i]);
-
-
-         }
-         for(int i=0;i<8;i++){
-
-
-             num3.add(um.SEE[3][i]);
-
-
-         }
-         for(int i=0;i<8;i++){
-
-
-             num4.add(um.SEE[4][i]);
-
-
-         }*/
 
          ArrayList<String> SEmon = new ArrayList<String>();
          ArrayList<String> SEtue = new ArrayList<String>();
@@ -281,11 +253,11 @@ public class Laraib {
 
 
 
-         ArrayList<String> PSEmon = new ArrayList<String>();
-         ArrayList<String> PSEtue = new ArrayList<String>();
-         ArrayList<String> PSEwen = new ArrayList<String>();
-         ArrayList<String> PSEthur = new ArrayList<String>();
-         ArrayList<String> PSEfri = new ArrayList<String>();
+         ArrayList<String> PSEmon; //= new ArrayList<String>();
+         ArrayList<String> PSEtue ;//= new ArrayList<String>();
+         ArrayList<String> PSEwen ;//= new ArrayList<String>();
+         ArrayList<String> PSEthur;// = new ArrayList<String>();
+         ArrayList<String> PSEfri;// = new ArrayList<String>();
 
          ArrayList<String> PTEmon = new ArrayList<String>();
          ArrayList<String> PTEtue = new ArrayList<String>();
@@ -298,6 +270,14 @@ public class Laraib {
          ArrayList<String> PBEwen = new ArrayList<String>();
          ArrayList<String> PBEthur = new ArrayList<String>();
          ArrayList<String> PBEfri = new ArrayList<String>();
+
+
+         ArrayList<String> pmon,ptue,pwen,pthur,pfri,dmon,dtue,dwen,dthur,dfri,dmmon,dmtue,dmwen,dmthur,dmfri,smon,stue,swen,sthur,sfri,cmon,ctue,cwen,cthur,cfri
+                 ,samon,satue,sawen,sathur,safri,gmon,gtue,gwen,gthur,gfri,demon,detue,dewen,dethur,defri,kmon,ktue,kwen,kthur,kfri,amon,atue,awen,athur,afri,
+                 emon,etue,ewen,ethur,efri=
+
+
+
 
 
 
@@ -342,16 +322,80 @@ public class Laraib {
          PBEfri=Array4(practical.PracBE,4);
 
 
+         dmon =Array(proftimetable.changeto2,8);
+         dtue= Array1(proftimetable.changeto2,8);
+         dwen=Array2(proftimetable.changeto2,8);
+         dthur= Array3(proftimetable.changeto2,8);
+         dfri=Array4(proftimetable.changeto2,8);
+
+         dmmon =Array(proftimetable.Prof1,8);
+         dmtue= Array1(proftimetable.Prof1,8);
+         dmwen=Array2(proftimetable.Prof1,8);
+         dmthur= Array3(proftimetable.Prof1,8);
+         dmfri=Array4(proftimetable.Prof1,8);
 
 
 
-        // SeTimetable seTimetable =new SeTimetable("SE Comp ",new ArrayList<String>(Arrays.asList("COA","DSA","DELD","OOPS")),new ArrayList<String>(Arrays.asList("DSAL","DELDL","OOPL"))
-                // ,new ArrayList<String>(Arrays.asList("COA","DSA","DELD","OOPS")),new ArrayList<String>(Arrays.asList("COA","DSA","DELD","OOPS")),SEfri);
-         //SeTimetable seTimetableMon =new SeTimetable("Mon ",new ArrayList<String>(Arrays.asList("COA","DSA","DELD","OOPS")),new ArrayList<String>(Arrays.asList("DSAL","DELDL","OOPL"))
-                 //,new ArrayList<String>(Arrays.asList("COA","DSA","DELD","OOPS")),new ArrayList<String>(Arrays.asList("COA","DSA","DELD","OOPS")),SEfri);
+         pmon =Array(proftimetable.changeto,8);
+         ptue= Array1(proftimetable.changeto,8);
+         pwen=Array2(proftimetable.changeto,8);
+         pthur= Array3(proftimetable.changeto,8);
+         pfri=Array4(proftimetable.changeto,8);
 
-         //SeTimetable seTimetabletue =new SeTimetable("SUBJECTS ",new ArrayList<String>(Arrays.asList("COA","DSA","DELD","OOPS")),new ArrayList<String>(Arrays.asList("DSAL","DELDL","OOPL"))
-                 //,new ArrayList<String>(Arrays.asList("COA","DSA","DELD","OOPS")),new ArrayList<String>(Arrays.asList("COA","DSA","DELD","OOPS")),SEfri);
+         smon =Array(proftimetable.changeto3,8);
+         stue= Array1(proftimetable.changeto3,8);
+         swen=Array2(proftimetable.changeto3,8);
+         sthur= Array3(proftimetable.changeto3,8);
+         sfri=Array4(proftimetable.changeto3,8);
+
+         samon =Array(proftimetable.changeto6,8);
+         satue= Array1(proftimetable.changeto6,8);
+         sawen=Array2(proftimetable.changeto6,8);
+         sathur= Array3(proftimetable.changeto6,8);
+         safri=Array4(proftimetable.changeto6,8);
+
+
+         gmon =Array(proftimetable.changeto4,8);
+         gtue= Array1(proftimetable.changeto4,8);
+         gwen=Array2(proftimetable.changeto4,8);
+         gthur= Array3(proftimetable.changeto4,8);
+         gfri=Array4(proftimetable.changeto4,8);
+
+         cmon =Array(proftimetable.changeto5,8);
+         ctue= Array1(proftimetable.changeto5,8);
+         cwen=Array2(proftimetable.changeto5,8);
+         cthur= Array3(proftimetable.changeto5,8);
+         cfri=Array4(proftimetable.changeto5,8);
+
+         demon =Array(proftimetable.changeto7,8);
+         detue= Array1(proftimetable.changeto7,8);
+         dewen=Array2(proftimetable.changeto7,8);
+         dethur= Array3(proftimetable.changeto7,8);
+         defri=Array4(proftimetable.changeto7,8);
+
+         kmon =Array(proftimetable.changeto8,8);
+         ktue= Array1(proftimetable.changeto8,8);
+         kwen=Array2(proftimetable.changeto8,8);
+         kthur= Array3(proftimetable.changeto8,8);
+         kfri=Array4(proftimetable.changeto8,8);
+
+         amon =Array(proftimetable.changeto9,8);
+         atue= Array1(proftimetable.changeto9,8);
+         awen=Array2(proftimetable.changeto9,8);
+         athur= Array3(proftimetable.changeto9,8);
+         afri=Array4(proftimetable.changeto9,8);
+
+
+         emon =Array(proftimetable.changeto10,8);
+         etue= Array1(proftimetable.changeto10,8);
+         ewen=Array2(proftimetable.changeto10,8);
+         ethur= Array3(proftimetable.changeto10,8);
+         efri=Array4(proftimetable.changeto10,8);
+
+
+
+
+
 
          SeTimetable seTimetablewen =new SeTimetable("SUBJECTS ",SEmon,SEtue
                  ,SEwen,SEthur,SEfri);
@@ -360,49 +404,90 @@ public class Laraib {
          SeTimetable BeTimetablewen =new SeTimetable("SUBJECTS  ",BEmon,BEtue
                  ,BEwen,BEthur,BEfri);
 
-         SeTimetable PseTimetablewen =new SeTimetable("SUBJECTS   ",SEmon,SEtue
-                 ,SEwen,SEthur,SEfri);
-         SeTimetable PTeTimetablewen =new SeTimetable("SUBJECTS   ",TEmon,TEtue
-                 ,TEwen,TEthur,TEfri);
-         SeTimetable PBeTimetablewen =new SeTimetable("SUBJECTS   ",BEmon,BEtue
-                 ,BEwen,BEthur,BEfri);
 
 
-        // ApiFuture<WriteResult> future = db.collection("SE_Timetable").document(seTimetable.getClassName()).set(seTimetable);
-        // ApiFuture<WriteResult> future1 = db.collection("SE_Timetable").document(seTimetableMon.getClassName()).set(seTimetableMon);
-        // ApiFuture<WriteResult> future2 = db.collection("SE_Timetable").document(seTimetabletue.getClassName()).set(seTimetabletue);
+
+
+         SeTimetable QseTimetablewen =new SeTimetable("PRACTICAL",PSEmon,PSEtue
+                 ,PSEwen,PSEthur,PSEfri);
+         SeTimetable QTeTimetablewen =new SeTimetable("PRACTICAL ",PTEmon,PTEtue
+                 ,PTEwen,PTEthur,PTEfri);
+         SeTimetable QBeTimetablewen =new SeTimetable("PRACTICAL  ",PBEmon,PBEtue
+                 ,PBEwen,PBEthur,PBEfri);
+
+
+         SeTimetable dmTimetablewen =new SeTimetable("DESHMUKH MAM",dmmon,dmtue
+                 ,dmwen,dmthur,dmfri);
+         SeTimetable dTimetablewen =new SeTimetable("DESHMUKH SIR",dmon,dtue
+                 ,dwen,dthur,dfri);
+         SeTimetable pTimetablewen =new SeTimetable("PARERA SIR",pmon,ptue
+                 ,pwen,pthur,pfri);
+         SeTimetable smTimetablewen =new SeTimetable("SNEHAL",smon,stue
+                 ,swen,sthur,sfri);
+         SeTimetable saTimetablewen =new SeTimetable("SURBE",samon,satue
+                 ,sawen,sathur,safri);
+         SeTimetable gTimetablewen =new SeTimetable("GHUMRAI",gmon,gtue
+                 ,gwen,gthur,gfri);
+         SeTimetable cTimetablewen =new SeTimetable("CN",cmon,ctue
+                 ,cwen,cthur,cfri);
+         SeTimetable deTimetablewen =new SeTimetable("DELD",demon,detue
+                 ,dewen,dethur,defri);
+         SeTimetable kTimetablewen =new SeTimetable("KANCHAN",kmon,ktue
+                 ,kwen,kthur,kfri);
+         SeTimetable aTimetablewen =new SeTimetable("AIR-P",amon,atue
+                 ,awen,athur,afri);
+         SeTimetable eTimetablewen =new SeTimetable("EL-P",emon,etue
+                 ,ewen,ethur,efri);
+
+
+
+
+
+
          ApiFuture<WriteResult> future3 = db.collection("SE_Timetable").document(seTimetablewen.getClassName()).set(seTimetablewen);
          ApiFuture<WriteResult> future4 = db.collection("TE_Timetable").document(TeTimetablewen.getClassName()).set(TeTimetablewen);
          ApiFuture<WriteResult> future5 = db.collection("BE_Timetable").document(BeTimetablewen.getClassName()).set(BeTimetablewen);
 
-         ApiFuture<WriteResult> future6 = db.collection("SE_Timetable").document(PseTimetablewen.getClassName()).set(PseTimetablewen);
-         ApiFuture<WriteResult> future7 = db.collection("TE_Timetable").document(PTeTimetablewen.getClassName()).set(PTeTimetablewen);
-         ApiFuture<WriteResult> future8 = db.collection("BE_Timetable").document(PBeTimetablewen.getClassName()).set(PBeTimetablewen);
-        // future.get();
-         //future1.get();
-         //future2.get();
+
+
+
+         ApiFuture<WriteResult> future9 = db.collection("SE_Timetable").document(QseTimetablewen.getClassName()).set(QseTimetablewen);
+         ApiFuture<WriteResult> future11 = db.collection("TE_Timetable").document(QTeTimetablewen.getClassName()).set(QTeTimetablewen);
+         ApiFuture<WriteResult> future12 = db.collection("BE_Timetable").document(QBeTimetablewen.getClassName()).set(QBeTimetablewen);
+
+         ApiFuture<WriteResult> future13 = db.collection("PROFESSOR").document(dmTimetablewen.getClassName()).set(dmTimetablewen);
+         ApiFuture<WriteResult> future14 = db.collection("PROFESSOR").document(dTimetablewen.getClassName()).set(dTimetablewen);
+         ApiFuture<WriteResult> future15 = db.collection("PROFESSOR").document(pTimetablewen.getClassName()).set(pTimetablewen);
+         ApiFuture<WriteResult> future16 = db.collection("PROFESSOR").document(smTimetablewen.getClassName()).set(smTimetablewen);
+         ApiFuture<WriteResult> future17 = db.collection("PROFESSOR").document(saTimetablewen.getClassName()).set(saTimetablewen);
+         ApiFuture<WriteResult> future18 = db.collection("PROFESSOR").document(gTimetablewen.getClassName()).set(gTimetablewen);
+         ApiFuture<WriteResult> future19 = db.collection("PROFESSOR").document(cTimetablewen.getClassName()).set(cTimetablewen);
+         ApiFuture<WriteResult> future20 = db.collection("PROFESSOR").document(deTimetablewen.getClassName()).set(deTimetablewen);
+         ApiFuture<WriteResult> future21 = db.collection("PROFESSOR").document(kTimetablewen.getClassName()).set(kTimetablewen);
+         ApiFuture<WriteResult> future22 = db.collection("PROFESSOR").document(aTimetablewen.getClassName()).set(aTimetablewen);
+         ApiFuture<WriteResult> future23 = db.collection("PROFESSOR").document(eTimetablewen.getClassName()).set(eTimetablewen);
+
+
          future3.get();
          future4.get();
          future5.get();
-         future6.get();
-         future7.get();
-         future8.get();
 
-
-
+         future9.get();
+         future11.get();
+         future12.get();
+         future13.get();
+         future14.get();
+         future15.get();
+         future16.get();
+         future17.get();
+         future18.get();
+         future19.get();
+         future20.get();
+         future21.get();
+         future22.get();
+         future23.get();
 
          System.out.println("Succsessfully updated   " +  future3.get().getUpdateTime());
-        // System.out.println("Succsessfully updated   " +  future4.get().getUpdateTime());
-        // System.out.println("Succsessfully updated   " +  future5.get().getUpdateTime());
-        // System.out.println("Succsessfully updated   " +  future6.get().getUpdateTime());
-        // System.out.println("Succsessfully updated   " +  future7.get().getUpdateTime());
-        // System.out.println("Succsessfully updated   " +  future8.get().getUpdateTime());
-        // System.out.println("Succsessfully updated   " +  future3.get().getUpdateTime());
-
-
-
-
-
 
 
 
